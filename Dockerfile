@@ -6,5 +6,8 @@ ADD http://download.opensuse.org/repositories/home:/xtreemfs/xUbuntu_13.10/Relea
 RUN apt-key add /Release.key
 RUN apt-get update
 RUN apt-get install -y xtreemfs-server xtreemfs-client
+ADD entrypoint.sh /
+ADD fix_config.pl /
 
-ENTRYPOINT ["/usr/bin/java", "-ea", "-cp", "/usr/share/java/XtreemFS.jar:/usr/share/java/BabuDB.jar:/usr/share/java/Flease.jar:/usr/share/java/protobuf-java-2.5.0.jar:/usr/share/java/Foundation.jar:/usr/share/java/jdmkrt.jar:/usr/share/java/jdmktk.jar:/usr/share/java/commons-codec-1.3.jar"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["--version"]
