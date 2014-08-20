@@ -7,7 +7,7 @@ RUN apt-key add /Release.key
 RUN apt-get update
 RUN apt-get install -y xtreemfs-server xtreemfs-client
 ADD entrypoint.sh /
-ADD fix_config.pl /
+ADD fix_dir_host_config.pl /
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["--version"]
